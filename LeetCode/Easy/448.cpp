@@ -15,3 +15,20 @@ vector<int> findDisappearedNumbers(vector<int>& nums) {
     }
     return nums;
 }
+
+/*
+Optimized Solution
+*/
+
+vector<int> findDisappearedNumbers(vector<int>& nums) {
+    int N = nums.size();
+    vector<int> result;
+    for(int i = 0; i < N; i++){
+        while(nums[i] > 0 && nums[nums[i]-1] != nums[i])
+            swap(nums[i],nums[nums[i]-1]);
+    }
+    for(int i = 0; i < N; i++)
+        if(nums[i] != i+1)
+            result.push_back(i+1);
+    return result;
+}
