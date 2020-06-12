@@ -1,4 +1,24 @@
 int pivotIndex(vector<int>& nums) {
+        if(nums.size() == 0){
+            return -1;
+        }
+        int total = 0;
+        for(int t : nums){
+            total += t;
+        }
+        int leftSum = 0;
+        for(int i=0;i<nums.size();i++){
+            if(leftSum == (total - nums[i]))
+                return i;
+            else{
+                leftSum +=nums[i];
+                total -= nums[i];
+            }
+        }
+        return -1;
+    }
+
+int pivotIndex(vector<int>& nums) {
     int leftSum = 0;
     bool flag = false;
     int rightSum = 0;
