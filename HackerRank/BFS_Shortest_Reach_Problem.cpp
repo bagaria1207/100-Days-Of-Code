@@ -21,7 +21,6 @@ int main(){
         cin>>start;
 
         //BFS CODE Starts Here
-        int level[N+1] = {-1};
         int distance[N+1];
         for(int i=0;i<N+1;i++){
             distance[i] = -1;
@@ -29,10 +28,8 @@ int main(){
         bool visited[N+1] = {false};
         queue<int> q;
         q.push(start);
-        level[0] = 1;
         distance[0] = 0;
         distance[start] = 0;
-        level[start] = 1;
         visited[start] = true;
         while(!q.empty()){
             int front_q = q.front();
@@ -43,7 +40,6 @@ int main(){
                 }
                 else{
                     distance[u] = distance[front_q]+6;
-                    level[u] = level[front_q] + 1;
                     visited[u] = true;
                     q.push(u);
                 }
@@ -57,6 +53,7 @@ int main(){
         for(int i=0;i<res.size();i++){
             cout<<res[i]<<" ";
         }
+        cout<<"\n";
     }
     return 0;
 }
