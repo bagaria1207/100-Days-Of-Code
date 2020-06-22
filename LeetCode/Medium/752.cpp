@@ -20,7 +20,7 @@ public:
                 }
                 for(int j = 0;j < 4;j++){
                     char temp = current[j];
-                    current[j] = temp == '9' ? 0 : temp + 1;
+                    current[j] = temp == '9' ? '0' : temp + 1;
                     if(dead_hash.find(current) == dead_hash.end() && visited.find(current) == visited.end()){
                         q.push(current);
                         visited.insert(current);
